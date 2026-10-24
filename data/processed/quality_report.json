@@ -1,0 +1,181 @@
+{
+  "raw_sha256": "bb3e7a86e66115196bf4997243b89cd068eda665d94f5d0aebd371082b5ee698",
+  "pipeline_version": 2,
+  "raw_rows": 125964,
+  "final_rows": 121586,
+  "snapshot_date": "2026-10-23",
+  "processed_at": "2026-10-24T00:17:31+00:00",
+  "missingness_pct": {
+    "consolidated_commune": 30.17,
+    "date_mise_en_service": 27.9,
+    "code_insee_commune": 25.55,
+    "paiement_cb": 9.73,
+    "gratuit": 9.26,
+    "nom_amenageur": 1.14,
+    "nom_operateur": 0.51,
+    "nom_enseigne": 0.0,
+    "nom_station": 0.0,
+    "id_station_itinerance": 0.0,
+    "id_pdc_itinerance": 0.0,
+    "nbre_pdc": 0.0,
+    "coordonneesXY": 0.0,
+    "implantation_station": 0.0,
+    "prise_type_combo_ccs": 0.0,
+    "prise_type_2": 0.0,
+    "puissance_nominale": 0.0,
+    "prise_type_ef": 0.0,
+    "prise_type_chademo": 0.0,
+    "prise_type_autre": 0.0,
+    "accessibilite_pmr": 0.0,
+    "condition_acces": 0.0,
+    "station_deux_roues": 0.0,
+    "date_maj": 0.0,
+    "consolidated_longitude": 0.0,
+    "consolidated_latitude": 0.0
+  },
+  "checks": [
+    {
+      "check": "Exact duplicate rows",
+      "description": "Identical rows published twice",
+      "rows": 5,
+      "pct": 0.0,
+      "action": "Dropped",
+      "status": "handled"
+    },
+    {
+      "check": "Duplicate charge-point ID",
+      "description": "Same id_pdc_itinerance declared more than once",
+      "rows": 4373,
+      "pct": 3.47,
+      "action": "Kept the most recently updated record",
+      "status": "handled"
+    },
+    {
+      "check": "Missing charge-point ID",
+      "description": "id_pdc_itinerance empty",
+      "rows": 0,
+      "pct": 0.0,
+      "action": "Kept (counted)",
+      "status": "pass"
+    },
+    {
+      "check": "Power declared in W",
+      "description": "puissance_nominale > 1,000 (kW expected)",
+      "rows": 4,
+      "pct": 0.0,
+      "action": "Divided by 1,000",
+      "status": "handled"
+    },
+    {
+      "check": "Power = 0",
+      "description": "Placeholder value meaning 'unknown'",
+      "rows": 2713,
+      "pct": 2.15,
+      "action": "Set to missing",
+      "status": "handled"
+    },
+    {
+      "check": "Implausible power",
+      "description": "Outside 1–500 kW after unit fix",
+      "rows": 55,
+      "pct": 0.04,
+      "action": "Set to missing",
+      "status": "handled"
+    },
+    {
+      "check": "Missing power",
+      "description": "No usable nominal power",
+      "rows": 2768,
+      "pct": 2.2,
+      "action": "Kept; excluded from kW metrics",
+      "status": "handled"
+    },
+    {
+      "check": "Swapped lon/lat",
+      "description": "Coordinates valid only once inverted",
+      "rows": 0,
+      "pct": 0.0,
+      "action": "Swapped back",
+      "status": "pass"
+    },
+    {
+      "check": "Coordinates outside France",
+      "description": "Not in metropolitan France or the 5 DROM",
+      "rows": 135,
+      "pct": 0.11,
+      "action": "Set to missing",
+      "status": "handled"
+    },
+    {
+      "check": "Missing coordinates",
+      "description": "No usable coordinates",
+      "rows": 135,
+      "pct": 0.11,
+      "action": "Department from INSEE code if possible",
+      "status": "handled"
+    },
+    {
+      "check": "Unparsable date",
+      "description": "date_mise_en_service not a date",
+      "rows": 0,
+      "pct": 0.0,
+      "action": "Set to missing",
+      "status": "pass"
+    },
+    {
+      "check": "Date before 2010",
+      "description": "Commissioned before 2010 (placeholder like 0001-01-01)",
+      "rows": 33,
+      "pct": 0.03,
+      "action": "Set to missing",
+      "status": "handled"
+    },
+    {
+      "check": "Date in the future",
+      "description": "Commissioning after snapshot (2026-10-23)",
+      "rows": 1,
+      "pct": 0.0,
+      "action": "Set to missing",
+      "status": "handled"
+    },
+    {
+      "check": "Missing commissioning date",
+      "description": "Unknown date",
+      "rows": 35102,
+      "pct": 27.87,
+      "action": "Kept; excluded from time charts",
+      "status": "handled"
+    },
+    {
+      "check": "No department",
+      "description": "Neither coordinates nor INSEE code locate the point",
+      "rows": 121,
+      "pct": 0.1,
+      "action": "Dropped from geo analyses",
+      "status": "handled"
+    },
+    {
+      "check": "Unrecognised location type",
+      "description": "implantation_station empty or outside the schema list",
+      "rows": 0,
+      "pct": 0.0,
+      "action": "Labelled 'Not specified'",
+      "status": "pass"
+    },
+    {
+      "check": "Unrecognised access condition",
+      "description": "condition_acces empty or outside the schema list",
+      "rows": 0,
+      "pct": 0.0,
+      "action": "Labelled 'Not specified'",
+      "status": "pass"
+    }
+  ],
+  "dept_method": {
+    "coordinates": 121326,
+    "insee_code": 139,
+    "unassigned": 121
+  },
+  "source_url": "https://www.data.gouv.fr/api/1/datasets/r/eb76d20a-8501-400e-b336-d85724de5435",
+  "downloaded_at": "2026-10-23T22:38:08+00:00"
+}

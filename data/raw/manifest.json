@@ -1,0 +1,9 @@
+{
+  "dataset": "Fichier consolidé des Bornes de Recharge pour Véhicules Électriques (IRVE)",
+  "page": "https://www.data.gouv.fr/datasets/fichier-consolide-des-bornes-de-recharge-pour-vehicules-electriques/",
+  "url": "https://www.data.gouv.fr/api/1/datasets/r/eb76d20a-8501-400e-b336-d85724de5435",
+  "license": "Licence Ouverte / Open Licence 2.0 (Etalab)",
+  "downloaded_at": "2026-10-23T22:38:08+00:00",
+  "bytes": 90009590,
+  "sha256": "bb3e7a86e66115196bf4997243b89cd068eda665d94f5d0aebd371082b5ee698"
+}

@@ -1,0 +1,102 @@
+code_dept,nom_dept,code_region,zone,nom_region,population,area_km2
+01,Ain,84,metro,Auvergne-Rhône-Alpes,679344,5771.1
+02,Aisne,32,metro,Hauts-de-France,523342,7387.8
+03,Allier,84,metro,Auvergne-Rhône-Alpes,333298,7360.5
+04,Alpes-de-Haute-Provence,93,metro,Provence-Alpes-Côte d'Azur,168054,6981.1
+05,Hautes-Alpes,93,metro,Provence-Alpes-Côte d'Azur,143467,5678.4
+06,Alpes-Maritimes,93,metro,Provence-Alpes-Côte d'Azur,1128418,4285.8
+07,Ardèche,84,metro,Auvergne-Rhône-Alpes,334231,5553.7
+08,Ardennes,44,metro,Grand Est,265893,5227.6
+09,Ariège,76,metro,Occitanie,155722,4903.2
+10,Aube,44,metro,Grand Est,310447,6009.7
+11,Aude,76,metro,Occitanie,379648,6333.0
+12,Aveyron,76,metro,Occitanie,279609,8755.5
+13,Bouches-du-Rhône,93,metro,Provence-Alpes-Côte d'Azur,2087658,5081.2
+14,Calvados,28,metro,Normandie,709441,5573.6
+15,Cantal,84,metro,Auvergne-Rhône-Alpes,144196,5761.4
+16,Charente,75,metro,Nouvelle-Aquitaine,352683,5959.7
+17,Charente-Maritime,75,metro,Nouvelle-Aquitaine,672279,7041.5
+18,Cher,24,metro,Centre-Val de Loire,298660,7286.1
+19,Corrèze,75,metro,Nouvelle-Aquitaine,240826,5884.9
+21,Côte-d'Or,27,metro,Bourgogne-Franche-Comté,540100,8777.1
+22,Côtes-d'Armor,53,metro,Bretagne,611859,6966.7
+23,Creuse,75,metro,Nouvelle-Aquitaine,115527,5586.2
+24,Dordogne,75,metro,Nouvelle-Aquitaine,417614,9201.9
+25,Doubs,27,metro,Bourgogne-Franche-Comté,547163,5241.8
+26,Drôme,84,metro,Auvergne-Rhône-Alpes,524207,6545.2
+27,Eure,28,metro,Normandie,602714,6014.0
+28,Eure-et-Loir,24,metro,Centre-Val de Loire,433129,5914.2
+29,Finistère,53,metro,Bretagne,933455,6746.7
+2A,Corse-du-Sud,94,metro,Corse,168306,4013.0
+2B,Haute-Corse,94,metro,Corse,187180,4699.6
+30,Gard,76,metro,Occitanie,770940,5863.7
+31,Haute-Garonne,76,metro,Occitanie,1471468,6346.5
+32,Gers,76,metro,Occitanie,192645,6288.5
+33,Gironde,75,metro,Nouvelle-Aquitaine,1690493,10362.4
+34,Hérault,76,metro,Occitanie,1230289,6218.4
+35,Ille-et-Vilaine,53,metro,Bretagne,1120666,6818.8
+36,Indre,24,metro,Centre-Val de Loire,216069,6881.4
+37,Indre-et-Loire,24,metro,Centre-Val de Loire,619362,6140.5
+38,Isère,84,metro,Auvergne-Rhône-Alpes,1298990,7861.3
+39,Jura,27,metro,Bourgogne-Franche-Comté,257973,5036.4
+40,Landes,75,metro,Nouvelle-Aquitaine,433570,9333.4
+41,Loir-et-Cher,24,metro,Centre-Val de Loire,328543,6403.5
+42,Loire,84,metro,Auvergne-Rhône-Alpes,774133,4792.7
+43,Haute-Loire,84,metro,Auvergne-Rhône-Alpes,228654,4992.9
+44,Loire-Atlantique,52,metro,Pays de la Loire,1487570,6989.0
+45,Loiret,24,metro,Centre-Val de Loire,691268,6793.3
+46,Lot,76,metro,Occitanie,176473,5215.0
+47,Lot-et-Garonne,75,metro,Nouvelle-Aquitaine,333602,5374.0
+48,Lozère,76,metro,Occitanie,76486,5164.9
+49,Maine-et-Loire,52,metro,Pays de la Loire,833776,7152.4
+50,Manche,28,metro,Normandie,497522,6002.3
+51,Marne,44,metro,Grand Est,563076,8171.4
+52,Haute-Marne,44,metro,Grand Est,168331,6238.4
+53,Mayenne,52,metro,Pays de la Loire,305468,5198.0
+54,Meurthe-et-Moselle,44,metro,Grand Est,732236,5268.4
+55,Meuse,44,metro,Grand Est,180290,6215.0
+56,Morbihan,53,metro,Bretagne,783390,6821.7
+57,Moselle,44,metro,Grand Est,1051309,6233.4
+58,Nièvre,27,metro,Bourgogne-Franche-Comté,201417,6856.8
+59,Nord,32,metro,Hauts-de-France,2615635,5730.8
+60,Oise,32,metro,Hauts-de-France,829899,5870.6
+61,Orne,28,metro,Normandie,275201,6127.7
+62,Pas-de-Calais,32,metro,Hauts-de-France,1457905,6671.0
+63,Puy-de-Dôme,84,metro,Auvergne-Rhône-Alpes,664453,7996.0
+64,Pyrénées-Atlantiques,75,metro,Nouvelle-Aquitaine,706564,7673.1
+65,Hautes-Pyrénées,76,metro,Occitanie,231349,4513.1
+66,Pyrénées-Orientales,76,metro,Occitanie,496855,4132.3
+67,Bas-Rhin,44,metro,Grand Est,1163810,4783.1
+68,Haut-Rhin,44,metro,Grand Est,770738,3522.1
+69,Rhône,84,metro,Auvergne-Rhône-Alpes,1914667,3250.7
+70,Haute-Saône,27,metro,Bourgogne-Franche-Comté,233185,5375.1
+71,Saône-et-Loire,27,metro,Bourgogne-Franche-Comté,550310,8592.3
+72,Sarthe,52,metro,Pays de la Loire,566733,6227.3
+73,Savoie,84,metro,Auvergne-Rhône-Alpes,448226,6256.4
+74,Haute-Savoie,84,metro,Auvergne-Rhône-Alpes,861158,4594.3
+75,Paris,11,metro,Île-de-France,2103778,105.0
+76,Seine-Maritime,28,metro,Normandie,1260964,6298.7
+77,Seine-et-Marne,11,metro,Île-de-France,1468108,5908.8
+78,Yvelines,11,metro,Île-de-France,1485086,2299.6
+79,Deux-Sèvres,75,metro,Nouvelle-Aquitaine,375229,6024.6
+80,Somme,32,metro,Hauts-de-France,565413,6174.6
+81,Tarn,76,metro,Occitanie,397352,5770.8
+82,Tarn-et-Garonne,76,metro,Occitanie,265817,3723.1
+83,Var,93,metro,Provence-Alpes-Côte d'Azur,1119307,6020.3
+84,Vaucluse,93,metro,Provence-Alpes-Côte d'Azur,572056,3571.0
+85,Vendée,52,metro,Pays de la Loire,713609,6755.5
+86,Vienne,75,metro,Nouvelle-Aquitaine,438897,7020.9
+87,Haute-Vienne,75,metro,Nouvelle-Aquitaine,373167,5543.5
+88,Vosges,44,metro,Grand Est,357248,5879.9
+89,Yonne,27,metro,Bourgogne-Franche-Comté,332267,7439.8
+90,Territoire de Belfort,27,metro,Bourgogne-Franche-Comté,140255,609.4
+91,Essonne,11,metro,Île-de-France,1338485,1814.1
+92,Hauts-de-Seine,11,metro,Île-de-France,1654712,175.0
+93,Seine-Saint-Denis,11,metro,Île-de-France,1704316,236.1
+94,Val-de-Marne,11,metro,Île-de-France,1426929,244.2
+95,Val-d'Oise,11,metro,Île-de-France,1281653,1249.1
+971,Guadeloupe,01,drom,Guadeloupe,384160,1641.5
+972,Martinique,02,drom,Martinique,360630,1111.3
+973,Guyane,03,drom,Guyane,293996,84121.7
+974,La Réunion,04,drom,La Réunion,889679,2510.4
+976,Mayotte,06,drom,Mayotte,256518,367.9

@@ -1,0 +1,5 @@
+{
+  "random_seed": 42,
+  "used_for": "Thinning the station map to at most 6,000 stations in section 6 (pandas .sample(random_state=42)).",
+  "note": "No other step is random: cleaning, aggregation and projections are deterministic."
+}
