@@ -41,7 +41,7 @@ re-tells itself when you filter on a region, a period or a charger type.
 | **File used** | Consolidated CSV, latest schema version (stable URL): <https://www.data.gouv.fr/api/1/datasets/r/eb76d20a-8501-400e-b336-d85724de5435> |
 | **Schema** | [etalab/schema-irve-statique](https://schema.data.gouv.fr/etalab/schema-irve-statique/latest.html) v2.3.x — one row per *point de charge* |
 | **Licence** | Licence Ouverte / Open Licence 2.0 (Etalab) — reuse allowed with attribution |
-| **Size** | ≈ 86 MB CSV (not bundled — downloaded and cached by `scripts/download_data.py`) |
+| **Size** | ≈ 90 MB CSV — the submitted zip includes the 23 Oct 2026 snapshot (`data/raw/`); the GitHub repo does not, `scripts/download_data.py` fetches it |
 | **Note** | data.gouv.fr announces the dataset is migrating to [transport.data.gouv.fr](https://transport.data.gouv.fr/datasets/fichier-consolide-des-bornes-de-recharge-pour-vehicules-electriques) and the old page stays until 31/12/2026. If the URL changes, set `IRVE_URL=<new url>`; no code change needed. |
 
 **Bundled reference data** (small, in the repo, rebuilt by `scripts/build_reference.py`):
@@ -65,7 +65,8 @@ python scripts/download_data.py      # ~90 MB once, then cached (or: make data)
 streamlit run app.py                 # http://localhost:8501
 ```
 
-- If the download step is skipped, the app downloads the file itself on first launch.
+- **Using the submitted zip?** The data snapshot is already included: skip `download_data.py` and run `streamlit run app.py` directly.
+- If the download step is skipped and no data is present, the app downloads the file itself on first launch.
 - Already have the CSV? `python scripts/download_data.py --from-file path/to/file.csv`
 - Get the latest version: `python scripts/download_data.py --force` (or `--max-age 7`).
 - Tests (no download needed): `pip install -r requirements-dev.txt && pytest -q`
@@ -155,20 +156,21 @@ is unchanged**; `st.cache_data` on loading, filtering and department aggregation
 
 - **Declared, not audited:** operators publish their own data; coverage is uneven and totals differ from
   the Avere-France barometer. No information on closures, availability or price.
-- **A large share of points has no usable commissioning date** (37 % in the snapshot used for testing; the
-  app shows the live figure) — time charts show dated points only and say so; the projection scales them explicitly (assumption stated in the app).
+- **A large share of points has no usable commissioning date** (29 % in the 23 Oct 2026 snapshot) — time charts show dated points only and say so; the projection scales them explicitly (assumption stated in the app).
 - **Per-capita ≠ need:** through-traffic, tourism and home-charging access vary by territory.
   Correlations are described, never presented as causes.
 - **Privacy:** operator contact e-mails and phone numbers present in the source are not loaded; all
   results are aggregated to stations or administrative areas.
 - **Licences:** data under Licence Ouverte 2.0 (attribution in the app footer and here); code under MIT.
 
-## 9. Submission checklist
+## 9. Submission
 
-- [ ] Deployed URL: `https://<your-app>.streamlit.app`
-- [ ] Repository URL: `https://github.com/<you>/<repo>`
-- [ ] Demo video (2–4 min) — script in `docs/storyboard.md`
-- [ ] Zip named `StApp26_<student-number>_<NOM>_<GROUP>.zip` with code, README and dataset link (`DATASET.md`)
+| | |
+|---|---|
+| **Student** | Ilyes Ben Said — 20230357 — group BIA |
+| **Repository** | <https://github.com/ilyes064/irve-dashboard> |
+| **Data snapshot** | downloaded 23 Oct 2026 (SHA-256 in `data/raw/manifest.json`); included in the submitted zip so the app runs offline |
+| **Demo video** | submitted with this zip (script in `docs/storyboard.md`) |
 
 ## Sources
 

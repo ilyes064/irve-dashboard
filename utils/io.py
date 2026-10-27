@@ -35,9 +35,24 @@ def _sha256(path: Path) -> str:
     return h.hexdigest()
 
 
+def _read_json(path: Path) -> dict:
+    """Read JSON written as UTF-8; tolerate files saved by older versions in a Windows code page."""
+    raw = path.read_bytes()
+    for enc in ("utf-8", "cp1252", "latin-1"):
+        try:
+            return json.loads(raw.decode(enc))
+        except (UnicodeDecodeError, json.JSONDecodeError):
+            continue
+    return {}
+
+
+def _write_json(path: Path, obj: dict) -> None:
+    path.write_text(json.dumps(obj, indent=2, ensure_ascii=False, default=str), encoding="utf-8")
+
+
 def read_manifest() -> dict:
     if RAW_MANIFEST.exists():
-        return json.loads(RAW_MANIFEST.read_text())
+        return _read_json(RAW_MANIFEST)
     return {}
 
 
@@ -75,7 +90,7 @@ def fetch_and_cache(url: str = IRVE_CSV_URL, force: bool = False, max_age_days: 
         "bytes": RAW_CSV.stat().st_size,
         "sha256": _sha256(RAW_CSV),
     }
-    RAW_MANIFEST.write_text(json.dumps(manifest, indent=2, ensure_ascii=False))
+    _write_json(RAW_MANIFEST, manifest)
     return RAW_CSV
 
 
@@ -106,14 +121,14 @@ def load_reference() -> pd.DataFrame:
 
 
 def load_geojson() -> dict:
-    return json.loads(DEPT_GEOJSON.read_text())
+    return json.loads(DEPT_GEOJSON.read_text(encoding="utf-8"))
 
 
 def load_processed(expected_sha: str | None) -> tuple[pd.DataFrame, dict] | None:
     """Return the processed table if it was built from the same raw file, else None."""
     if not (PROCESSED_PARQUET.exists() and QUALITY_JSON.exists()):
         return None
-    report = json.loads(QUALITY_JSON.read_text())
+    report = _read_json(QUALITY_JSON)
     if expected_sha and report.get("raw_sha256") != expected_sha:
         return None
     if report.get("pipeline_version") != PIPELINE_VERSION:
@@ -124,7 +139,7 @@ def load_processed(expected_sha: str | None) -> tuple[pd.DataFrame, dict] | None
 def save_processed(df: pd.DataFrame, report: dict) -> None:
     PROCESSED_PARQUET.parent.mkdir(parents=True, exist_ok=True)
     df.to_parquet(PROCESSED_PARQUET, index=False)
-    QUALITY_JSON.write_text(json.dumps(report, indent=2, ensure_ascii=False, default=str))
+    _write_json(QUALITY_JSON, report)
 
 
 def build_or_load(raw_path: Path = RAW_CSV, force: bool = False) -> tuple[pd.DataFrame, dict]:

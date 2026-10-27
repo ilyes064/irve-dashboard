@@ -65,12 +65,22 @@ def render(ctx: Ctx) -> None:
     now = int(total_series.iloc[-1])
     last12 = df["service_date"].between(snap - pd.DateOffset(years=1), snap)
     rapid12 = df.loc[last12, "is_fast"].mean() * 100 if last12.any() else 0
+    stock_fast = df["is_fast"].mean() * 100
+    prev12 = df["service_date"].between(snap - pd.DateOffset(years=2), snap - pd.DateOffset(years=1),
+                                        inclusive="left").sum()
     if then:
-        headline(
-            f"The dated network grew <b>{now / then:.1f}×</b> in three years ({fmt(then)} → {fmt(now)} points since "
-            f"{ref_date:%b %Y}). In the last 12 months, <b>{rapid12:.0f}%</b> of new points were fast "
-            f"(≥{FAST_THRESHOLD_KW:.0f} kW) — growth is now as much about power as about numbers."
-        )
+        text = (f"The dated network grew <b>{now / then:.1f}×</b> in three years ({fmt(then)} → {fmt(now)} points "
+                f"since {ref_date:%b %Y}).")
+        if prev12 >= 100:
+            change = (last12.sum() / prev12 - 1) * 100
+            text += (f" But the pace is <b>{'slowing' if change < -5 else 'rising' if change > 5 else 'stable'}</b>: "
+                     f"{fmt(last12.sum())} points commissioned in the last 12 months vs {fmt(prev12)} the year "
+                     f"before ({change:+.0f}%, partly a publication lag).")
+        if last12.any():
+            text += (f" {rapid12:.0f}% of the newest points are fast (≥{FAST_THRESHOLD_KW:.0f} kW), "
+                     f"{'more' if rapid12 > stock_fast + 1 else 'less' if rapid12 < stock_fast - 1 else 'about as much'}"
+                     f" than in the existing network ({stock_fast:.0f}%).")
+        headline(text)
     else:
         headline(f"{fmt(now)} dated charge points in this selection; {rapid12:.0f}% of the last 12 months' additions are fast.")
 

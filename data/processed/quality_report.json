@@ -4,7 +4,7 @@
   "raw_rows": 125964,
   "final_rows": 121586,
   "snapshot_date": "2026-10-23",
-  "processed_at": "2026-10-24T00:17:31+00:00",
+  "processed_at": "2026-10-26T11:21:07+00:00",
   "missingness_pct": {
     "consolidated_commune": 30.17,
     "date_mise_en_service": 27.9,
@@ -76,7 +76,7 @@
     },
     {
       "check": "Implausible power",
-      "description": "Outside 1–500 kW after unit fix",
+      "description": "Outside 1â€“500 kW after unit fix",
       "rows": 55,
       "pct": 0.04,
       "action": "Set to missing",

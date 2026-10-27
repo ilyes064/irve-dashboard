@@ -30,18 +30,26 @@ def render(ctx: Ctx) -> None:
     st.header("Takeaways & next steps", anchor="takeaways")
     st.caption("Computed on the whole country, independently of the sidebar filters.")
 
+    density_txt = (
+        f"Population density explains little of it (ρ = {rho:+.2f}): departments of similar density sit far "
+        "apart on the scatter plot." if abs(rho) < 0.3 else
+        f"Population density explains part of it (ρ = {rho:+.2f}), but not all."
+    )
+    trend_txt = (
+        f"and the newest points are no faster ({fast_new:.0f}% of last year's additions)"
+        if fast_new <= fast_all + 1 else f"although the newest points are faster ({fast_new:.0f}% of last year's additions)"
+    )
     st.success(
         f"""
-**1 · The network is growing fast, but not fast enough for 2030.** {fmt(len(df))} points are registered; the recent
+**1 · The network is growing, but not fast enough for 2030.** {fmt(len(df))} points are registered; the recent
 pace (~{fmt(pace)}/year) must reach ~{fmt(needed)}/year to hit {fmt(TARGET_2030)} by end-2030
 ({needed / pace:.1f}× today's pace).
 
 **2 · Access is unequal.** The best-equipped 10% of departments have at least {q[0.9]:,.0f} points per 100k
-inhabitants, the least-equipped 10% at most {q[0.1]:,.0f} (Gini {g:.2f}). Density explains part of it
-(ρ = {rho:+.2f}) — but not all: departments of similar density sit far apart on the scatter plot.
+inhabitants, the least-equipped 10% at most {q[0.1]:,.0f} (Gini {g:.2f}). {density_txt}
 
-**3 · Power is the new divide.** {fast_new:.0f}% of points added in the last 12 months are ≥{FAST_THRESHOLD_KW:.0f} kW,
-vs {fast_all:.0f}% of the stock. Departments with the fewest fast points per inhabitant: {', '.join(low_fast)}.
+**3 · Fast charging is the real divide.** Only {fast_all:.0f}% of points are ≥{FAST_THRESHOLD_KW:.0f} kW, {trend_txt}.
+Departments with the fewest fast points per inhabitant: {', '.join(low_fast)}.
 """,
         icon="💡",
     )

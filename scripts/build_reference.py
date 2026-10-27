@@ -48,7 +48,7 @@ SIMPLIFY_TOLERANCE_DEG = 0.008
 def _load_package(pkg_dir: Path | None) -> dict[str, list]:
     names = ["communes", "departements", "regions"]
     if pkg_dir:
-        return {n: json.loads((pkg_dir / "data" / f"{n}.json").read_text()) for n in names}
+        return {n: json.loads((pkg_dir / "data" / f"{n}.json").read_text(encoding="utf-8")) for n in names}
     resp = requests.get(NPM_TARBALL, timeout=120)
     resp.raise_for_status()
     out = {}
@@ -91,7 +91,7 @@ def main() -> None:
     ref = depts.merge(regions, on="code_region", how="left").merge(pop, on="code_dept", how="left")
 
     if args.geojson:
-        gj = json.loads(args.geojson.read_text())
+        gj = json.loads(args.geojson.read_text(encoding="utf-8"))
     else:
         r = requests.get(GEOJSON_URL, timeout=120)
         r.raise_for_status()
@@ -116,7 +116,7 @@ def main() -> None:
     DEPT_REFERENCE_CSV.parent.mkdir(parents=True, exist_ok=True)
     ref.to_csv(DEPT_REFERENCE_CSV, index=False)
     DEPT_GEOJSON.parent.mkdir(parents=True, exist_ok=True)
-    DEPT_GEOJSON.write_text(json.dumps({"type": "FeatureCollection", "features": features}, separators=(",", ":")))
+    DEPT_GEOJSON.write_text(json.dumps({"type": "FeatureCollection", "features": features}, separators=(",", ":")), encoding="utf-8")
 
     print(f"{len(ref)} departments, population {ref['population'].sum():,}")
     print(f"Wrote {DEPT_REFERENCE_CSV} and {DEPT_GEOJSON} ({DEPT_GEOJSON.stat().st_size/1e3:.0f} kB)")

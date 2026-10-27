@@ -11,10 +11,10 @@ plugged in, or are some territories left out?*
 |---|---|---|---|---|
 | 0 | Hook | Why care? | Headline with the live best/worst per-capita gap | Public charging is the precondition for EVs for people without a home charger, and access differs by an order of magnitude. |
 | 1 | Context | How big is the network? | 5 KPIs (points, stations, MW, per 100k, fast share) — react to filters | Numbers are large and growing; per-capita is the fair lens. |
-| 2 | Growth | How fast? | Cumulative stacked area by power class, 100k milestone annotated; yearly bars | Explosive growth since 2021; new points are increasingly fast. |
+| 2 | Growth | How fast? | Cumulative stacked area by power class, 100k milestone annotated; yearly bars | Network doubled in three years, but the pace has slowed in the last 12 months. |
 | 3 | Geography | Where? | Choropleth (click → zoom) + top/bottom ranking, indicator chosen in sidebar | Big gaps between departments; overseas departments far behind. |
 | 4 | Equity | Cities vs countryside? | Density scatter (log) + Lorenz/Gini | Density explains only part of the gap — local choices matter. |
-| 5 | Fast charging | Fast for long trips? | 100 % stacked bars by region + small multiples over time vs France | The new divide is power, not count. |
+| 5 | Fast charging | Fast for long trips? | 100 % stacked bars by region + small multiples over time vs France | Only ~1 point in 4 is fast, and the fast share varies from 0 % to 36 % between regions. |
 | 6 | Operators | Who builds it? | Top-10 operator bars + HHI; location types table | A fragmented market — coordination falls on public planners. |
 | 7 | Drill-down | My department? | Station map coloured by max power, KPIs vs national | Make it personal and actionable. |
 | 8 | What-if | 2030 reachable? | Projection: recent pace, your scenario (sliders), pace needed | The pace must multiply; with which assumptions. |
@@ -35,6 +35,6 @@ Record at 1440×900, browser zoom 90 %, sidebar open. Fill in the numbers your o
 | 2:00–2:25 | Small multiples; filter **Region = Île-de-France** in sidebar; KPIs update | "Each panel is a region against the national curve in grey. Let me filter on one region — every chart and every headline sentence recomputes." |
 | 2:25–2:50 | Zoom on the department map; What-if sliders (move pace, toggle Avere start) | "At the recent pace the 2030 target arrives in ___. Here I can test a scenario — the assumptions are listed right below." |
 | 2:50–3:15 | Data quality section | "Transparency: ___ duplicates removed, coordinates repaired, and ___% of points have no commissioning date — the biggest limitation." |
-| 3:15–3:35 | Takeaways | "Three takeaways: growth must speed up ___×, access is unequal, and power is the new divide. Next step: join EV registrations to measure vehicles per charger. Thanks!" |
+| 3:15–3:35 | Takeaways | "Three takeaways: growth must speed up ___×, access is unequal, and fast charging is the real divide. Next step: join EV registrations to measure vehicles per charger. Thanks!" |
 
 Tips: reset filters before recording; rehearse the clicks once; keep the cursor still while talking.

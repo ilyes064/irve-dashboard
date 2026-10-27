@@ -51,7 +51,8 @@ class Filters:
 def apply_filters(_df: pd.DataFrame, f: Filters, data_key: str) -> pd.DataFrame:
     """`_df` is not hashed (it's large and constant); `data_key` (raw SHA) invalidates the cache."""
     df = _df
-    m = df["nom_region"].astype(str).isin(f.regions)
+    # "All of France" keeps the few points that could not be located, so totals match the intro.
+    m = pd.Series(True, index=df.index) if f.all_regions else df["nom_region"].astype(str).isin(f.regions)
     in_years = df["service_year"].between(f.years[0], f.years[1]).fillna(False).astype(bool)
     m &= in_years | (df["service_year"].isna() & f.include_undated)
     m &= df["power_class"].astype(str).isin(f.power) | (df["power_class"].isna() & (len(f.power) == len(POWER_LABELS)))

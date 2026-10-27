@@ -11,8 +11,9 @@ Licence: Licence Ouverte / Open Licence 2.0 (Etalab)
 - Successor page (migration announced, old page kept until 31/12/2026):
   https://transport.data.gouv.fr/datasets/fichier-consolide-des-bornes-de-recharge-pour-vehicules-electriques
 
-The raw CSV (~86 MB) is not included in the zip: `python scripts/download_data.py` downloads it,
-records its SHA-256 and download date in `data/raw/manifest.json`, and builds the processed table.
+The submitted zip includes the snapshot used for the analysis (downloaded 23 Oct 2026, 125,964 rows,
+`data/raw/irve_statique_consolidated.csv`, SHA-256 in `data/raw/manifest.json`), because the data.gouv.fr
+page is scheduled to be removed on 31/12/2026. `python scripts/download_data.py --force` fetches a newer version.
 
 Reference data bundled in the repository:
 - `data/reference/departements.csv` — INSEE populations légales (in force 1 Jan 2026) via

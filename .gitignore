@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+data/raw/*.csv
+data/raw/*.part
+data/raw/manifest.json
+data/processed/
+.streamlit/secrets.toml
+.DS_Store
